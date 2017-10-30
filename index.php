@@ -13,7 +13,7 @@
 
     <body>
         <nav class=" lighten-1" role="navigation" style="background-color: #26A69A">
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo" >pcap Web Dissector</a></div>
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo" >Web Dissector</a></div>
         </nav>
 
         <div class="container" style="margin-top:20px;   ">
@@ -50,11 +50,10 @@
             <div class="row">
                 <?php
 
-                             
                 function csvList() {
                     $archivo = scan_dir("./csvFiles"); //ruta actual
-                    $tam= count($archivo);
-                    for ($i=0;$i<$tam;$i++) { //obtenemos un archivo y luego otro sucesivamente
+                    $tam = count($archivo);
+                    for ($i = 0; $i < $tam; $i++) { //obtenemos un archivo y luego otro sucesivamente
                         if (!is_dir($archivo[$i]) && ($archivo[$i] != ".." || $archivo[$i] != "." )) {//verificamos si es o no un directorio
                             echo "<a class='nounderline ' href='./csvFiles/$archivo[$i]' download><div class=\"col s2 csv  \" >$archivo[$i] <i class= 'material-icons prefix' style='float: right;'>cloud_download</i></div></a>";
                         }
@@ -62,7 +61,6 @@
                 }
 
                 function scan_dir($dir) {
-                    
                     //https://stackoverflow.com/questions/11923235/scandir-to-sort-by-date-modified
                     $ignored = array('.', '..', '.svn', '.htaccess');
 
@@ -72,7 +70,6 @@
                             continue;
                         $files[$file] = filemtime($dir . '/' . $file);
                     }
-
                     arsort($files);
                     $files = array_keys($files);
                     $files = array_reverse($files);
@@ -92,9 +89,9 @@
                     $fichero_subido = $dir_upload . basename($_FILES['fichero_usuario']['name']);
 
                     $tipeFileType = pathinfo($fichero_subido, PATHINFO_EXTENSION);
-
                     //Solo ficheros pcap
                     //echo $tipeFileType;
+
 
                     echo '<pre>';
                     if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
@@ -106,20 +103,28 @@
                     print "</pre>";
                     $protocols = array("framefields", "mqttFields");
                     $fields = "";
+                    $nameFields="";
                     $lenghtProtocols = count($protocols);
                     for ($i = 0; $i < $lenghtProtocols; $i++) {
                         $myfile = fopen("FieldsProtocol/{$protocols[$i]}.txt", "r") or die("Unable to open file!");
                         // Output one line until end-of-file
                         while (!feof($myfile)) {
                             $fields .= "__-e__" . fgets($myfile);
+                            $nameFields.=fgets($myfile).",";
                         }
                         fclose($myfile);
                     }
                     $fields = preg_replace("[\n|\r|\n\r]", '', $fields);
+                    $nameFields = preg_replace("[\n|\r|\n\r]", '', $nameFields);
                     //echo $fields;
-
+                    $nameFields=rtrim($nameFields,",");
+                    $nameFields=$nameFields."\n";
+                    //echo $nameFields;
                     $salida = shell_exec(dirname(__FILE__) . "/script.sh ./pcapFiles/{$namefile} ./csvFiles/{$nameCSV}.csv " . $fields);
                     //echo "CSV generado";
+                    //$file_data = "Stuff you want to add\n";
+                    $nameFields .= file_get_contents("./csvFiles/$nameCSV.csv");
+                    file_put_contents("./csvFiles/$nameCSV.csv", $nameFields);
                     csvList();
                 }
                 // tcpdump -i wlan0 -w /mnt/pendrive/IoTcaptura.pcap
