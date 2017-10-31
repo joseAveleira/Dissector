@@ -7,6 +7,8 @@ ip.src
 ip.dst
 tcp.srcport
 tcp.dstport
+eth.src
+eth.dst
 frame.cap_len
 frame.coloring_rule.name
 frame.coloring_rule.string

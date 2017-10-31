@@ -15,4 +15,4 @@ tshark -r "$1" -T fields $formatFields  -E separator=, -E quote=d > "$2"
 
 
 
-# sleep 2
+ sleep 5
