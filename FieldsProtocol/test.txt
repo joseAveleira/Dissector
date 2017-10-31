@@ -86,7 +86,6 @@ wlan.ba.control.multitid
 wlan.ba.control.cbitmap
 wlan.bar.compressed.tidinfo
 wlan.ba.bm
-wlan.fcs_good
 wlan_mgt.fixed.capabilities.ess
 wlan_mgt.fixed.capabilities.ibss
 wlan_mgt.fixed.capabilities.cfpoll.ap
