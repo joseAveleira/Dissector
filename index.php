@@ -27,15 +27,16 @@
                                     <input type="file" name="fichero_usuario">
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Upload pcap file">
+                                    <input class="file-path validate" type="text" placeholder="Upload pcap file" required="">
                                 </div>
                             </div>
                         </div>
                         <div class="input-field col s6" style="margin-bottom:20px;">
                             <i class="material-icons prefix">insert_drive_file</i>
-                            <input type="text" class="validate" name="csvName">
+                            <input type="text" class="validate" name="csvName" required="">
                             <label for="icon_telephone">CSV name</label>
                         </div>
+
                         <div class=" col s2">
                             <input type="checkbox" id="test1" name="typeFields[]" value="frameFields"/>
                             <label for="test1">Basic fields</label>
@@ -48,12 +49,11 @@
                             <input type="checkbox" id="test3" name="typeFields[]" value="awdFields" />
                             <label for="test3">Awd Dataset fields</label>
                         </div>
+
                     </div>
-                    <button type="submit" name="action"  class="waves-effect waves-light btn" style="float:right">Submit <i class="material-icons right">send</i></button>
+                    <button  id="checkBtn" type="submit" name="action"  class="waves-effect waves-light btn" style="float:right">Submit <i class="material-icons right">send</i></button>
                     <hr style="margin-top:120px;border-top: 2px solid #ddd " />
                     <h4 style="color:#26A69A">CSV Files</h4>
-
-
                 </form>
             </div>
             <!-- <form name='frm' method='post' class='form-horizontal' action='index.php' class='form-group ' enctype="multipart/form-data">
@@ -64,40 +64,15 @@
 
             <div class="row">
                 <?php
-
-                function csvList() {
-                    $archivo = scan_dir("./csvFiles"); //ruta actual
-                    $tam = count($archivo);
-                    for ($i = 0; $i < $tam; $i++) { //obtenemos un archivo y luego otro sucesivamente
-                        if (!is_dir($archivo[$i]) && ($archivo[$i] != ".." || $archivo[$i] != "." )) {//verificamos si es o no un directorio
-                            echo "<a class='nounderline ' href='./csvFiles/$archivo[$i]' download><div class=\"col s2 csv  \" >$archivo[$i] <i class= 'material-icons prefix' style='float: right;'>cloud_download</i></div></a>";
-                        }
-                    }
-                }
-
-                function scan_dir($dir) {
-                    //https://stackoverflow.com/questions/11923235/scandir-to-sort-by-date-modified
-                    $ignored = array('.', '..', '.svn', '.htaccess');
-
-                    $files = array();
-                    foreach (scandir($dir) as $file) {
-                        if (in_array($file, $ignored) && !is_dir($file))
-                            continue;
-                        $files[$file] = filemtime($dir . '/' . $file);
-                    }
-                    arsort($files);
-                    $files = array_keys($files);
-                    $files = array_reverse($files);
-
-                    return ($files) ? $files : false;
-                }
-
+                require_once("functions.php");
                 $haydatos = (count($_POST) > 0);
                 if (!$haydatos) {
                     csvList();
                 } else {
 
-                    $protocols=$_POST['typeFields'];
+
+
+                    $protocols = $_POST['typeFields'];
 
 
                     $dir_upload = 'pcapFiles/';
@@ -109,8 +84,6 @@
                     $tipeFileType = pathinfo($fichero_subido, PATHINFO_EXTENSION);
                     //Solo ficheros pcap
                     //echo $tipeFileType;
-
-
                     echo '<pre>';
                     if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
                         //echo "El fichero es válido y se subió con éxito.\n";
@@ -155,5 +128,6 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/myScript.js"></script>
     </body>
 </html>
