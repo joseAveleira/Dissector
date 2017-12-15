@@ -29,7 +29,7 @@ function scan_dir($dir) {
 
 function etiquetado($file) {
 
-    $tags = fopen("./tags/datosDDos2.txt", "r") or die("Unable to open file!");
+    $tags = fopen("./tags/MITM.txt", "r") or die("Unable to open file!");
     // Output one line until end-of-file
 
     $times;
@@ -81,7 +81,7 @@ function analisisTrama($trama, $times) {
     for ($i = 0; $i < $lenght; $i = $i + 2) {
         if ($timeTrama >= $times[$i] && $timeTrama <= $times[$i + 1]) {
            // echo "intrusion- $timeTrama<br />";
-             return $linea = preg_replace("[\n|\r|\n\r]", '', $trama) . ",ddos\n";
+             return $linea = preg_replace("[\n|\r|\n\r]", '', $trama) . ",mitm\n";
         }
         else{
             //echo "normal- $timeTrama<br />";
