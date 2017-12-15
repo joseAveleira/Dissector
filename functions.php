@@ -26,3 +26,73 @@ function scan_dir($dir) {
 
     return ($files) ? $files : false;
 }
+
+function etiquetado($file) {
+
+    $tags = fopen("./tags/datosDDos2.txt", "r") or die("Unable to open file!");
+    // Output one line until end-of-file
+
+    $times;
+    $count = 0;
+    while (!feof($tags)) {
+
+        $linea = fgets($tags);
+
+        $timestamp = explode(":", $linea);
+        $times[$count] = floatval($timestamp[1]);
+        $count++;
+        //echo floatval($timestamp[1])."<br />";
+    }
+    fclose($tags);
+
+
+    $myfile = fopen($file, "r") or die("Unable to open file!");
+    // Output one line until end-of-file
+    $etiquetado = "";
+    $firstLine = TRUE;
+    while (!feof($myfile)) {
+        if ($firstLine) {
+            $linea = fgets($myfile);
+            $linea = preg_replace("[\n|\r|\n\r]", '', $linea) . ",type\n";
+            $etiquetado .= $linea;
+            $firstLine = FALSE;
+        } else {
+            $linea = fgets($myfile);
+
+            if (!$linea == '') {
+                $etiquetado .= analisisTrama($linea, $times);
+            }
+        }
+
+        // echo fgets($myfile);
+    }
+    fclose($myfile);
+    file_put_contents($file, $etiquetado);
+}
+
+function analisisTrama($trama, $times) {
+    $tramas = explode(",", $trama);
+    $lenght = count($times);
+    //echo "<br /><br />".$lenght."<br /><br />";
+
+    $timeTrama = floatval(substr($tramas[2], 1, -1));
+    //echo $timeTrama;
+    $linea = "";
+    for ($i = 0; $i < $lenght; $i = $i + 2) {
+        if ($timeTrama >= $times[$i] && $timeTrama <= $times[$i + 1]) {
+           // echo "intrusion- $timeTrama<br />";
+             return $linea = preg_replace("[\n|\r|\n\r]", '', $trama) . ",ddos\n";
+        }
+        else{
+            //echo "normal- $timeTrama<br />";
+           $linea = preg_replace("[\n|\r|\n\r]", '', $trama) . ",normal\n";
+        }
+
+
+        //echo $times[$i+1];
+        //echo $i."<br />";
+    }
+    //todoo inicio y fin de los timestamp
+    //echo $tramas[2]."<br />";
+    return $linea;
+}

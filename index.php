@@ -70,8 +70,6 @@
                     csvList();
                 } else {
 
-
-
                     $protocols = $_POST['typeFields'];
 
 
@@ -115,8 +113,11 @@
                     $salida = shell_exec(dirname(__FILE__) . "/script.sh ./pcapFiles/{$namefile} ./csvFiles/{$nameCSV}.csv " . $fields);
                     //echo "CSV generado";
                     //$file_data = "Stuff you want to add\n";
-                    $nameFields .= file_get_contents("./csvFiles/$nameCSV.csv");
-                    file_put_contents("./csvFiles/$nameCSV.csv", $nameFields);
+                    $nameNewCSV="./csvFiles/$nameCSV.csv";
+                    $nameFields .= file_get_contents($nameNewCSV);
+                    file_put_contents($nameNewCSV, $nameFields);
+
+                    etiquetado($nameNewCSV);
                     csvList();
                 }
                 // tcpdump -i wlan0 -w /mnt/pendrive/IoTcaptura.pcap
