@@ -1,0 +1,584 @@
+
+    <!DOCTYPE html>
+      <html lang='en'>
+      <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+        <meta name='description' content='networking, wireshark, security, infosec'>
+        <meta name='author' content='Liam'>
+
+        <title>How to Split PCAP Files</title>
+
+    <script>
+ 	 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-82414090-1', 'auto');
+      ga('send', 'pageview');
+  </script><link rel='shortcut icon' type='image/png' href='https://srcport.com/resources/web-resources/sp.png'/><link href='https://srcport.com/config/css/guest-locked.css' rel='stylesheet'><link href='https://srcport.com/config/css/general-classes.css' rel='stylesheet'>
+      <link href='https://srcport.com/config/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://srcport.com/config/css/overlay-bootstrap.min.css' rel='stylesheet'><script src='https://srcport.com/config/control/plugins/jQuery/jQuery-2.2.0.min.js'></script>
+      <link rel='stylesheet' href='https://srcport.com/config/control/font-awesome/css/font-awesome.min.css'>
+      <link rel='stylesheet' href='https://srcport.com/config/control/icons/ionicons.min.css'>
+      <link rel='stylesheet' href='https://srcport.com/config/control/css/AdminLTE.min.css'>
+      <link rel='stylesheet' href='https://srcport.com/config/control/css/skins/skin-blue.min.css'>
+      <link rel='stylesheet' href='https://srcport.com/config/control/css/control.css'>
+			<link rel='stylesheet' href='https://srcport.com/config/javascript/fancybox/jquery.fancybox.css'/>
+
+    <!--[if lt IE 9]>
+      <script src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js'></script>
+      <script src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js'></script>
+    <![endif]-->
+
+      <script src='https://srcport.com/config/javascript/jquery-1.9.1.min.js'></script>
+      <script src='https://srcport.com/config/bootstrap/js/bootstrap.min.js'></script>
+
+      <script src='https://srcport.com/config/bootstrap/js/bootstrap.min.js'></script>
+      <script src='https://srcport.com/config/control/js/app.min.js'></script>
+			<script src='https://srcport.com/config/javascript/bootbox.min.js'></script>
+			<script src='https://srcport.com/config/javascript/jquery.redirect.js'></script>
+			<script src='https://srcport.com/config/javascript/clipboard.min.js'></script>
+			<script src='https://srcport.com/config/javascript/jquery.scrollTo.min.js'></script>
+			<script src='https://srcport.com/config/control/components/custom-scripts.js'></script>
+			<script src='https://srcport.com/config/javascript/fancybox/jquery.fancybox.pack.js'></script>
+			<link rel='stylesheet' type='text/css' href='https://srcport.com/config/javascript/jssocials/jssocials.css'/>
+			<link rel='stylesheet' type='text/css' href='https://srcport.com/config/javascript/jssocials/jssocials-theme-flat.css'/>
+			<script src='https://srcport.com/config/javascript/jssocials/jssocials.min.js'></script>
+
+			<script type='text/javascript'>
+				$(document).ready(function()
+				{
+				  $('.dropdown-toggle').dropdown();
+
+					if ($('#active-scans-circle').length)
+					{
+						for (var i = 0; i < 5; ++i)
+						{
+						 $('#active-scans-circle').fadeOut(300).fadeIn(300);
+						}
+					}
+				});
+
+				$(document).on('keyup', 'input', function(event)
+				{
+					var buttonLen = $(this).closest('form').find('.alloc-sub').length;
+
+					if (event.which == 13)
+					{
+						event.preventDefault();
+
+						if (buttonLen > 0)
+						{
+							$(this).closest('form').find('.alloc-sub').click();
+						}
+						else
+						{
+							$(this).closest('.modal-content').find('.alloc-sub').click();
+						}
+					}
+					else if (event.which == 27)
+					{
+						$(this).closest('.modal-content').find('.bootbox-close-button').click();
+					}
+				});
+
+				$(document).ready(function() {
+					$('#sm-footer-area').jsSocials({
+						url: 'https://srcport.com/articles/292/how-to-split-pcap-file',
+						text: "How to Split PCAP Files",
+						shares: ['email',
+						{ share: 'twitter', hashtags: 'networking, wireshark, security, infosec' },
+						'facebook',
+						'googleplus',
+						'linkedin',
+						'stumbleupon']
+					});
+				});
+			</script>
+
+	<link rel='stylesheet' type='text/css' href='https://srcport.com/pages/articles/article-styles.css'/>
+	<link rel='stylesheet' href='https://srcport.com/config/javascript/highlight/styles/default.css'>
+	<script src='https://srcport.com/config/javascript/highlight/highlight.pack.js'></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+<script type="text/javascript">
+
+$(document).ready(function()
+{
+  $('.fancybox').fancybox({
+    openEffect  : 'elastic',
+    closeEffect : 'elastic'
+  });
+
+	$("#sm-area").jsSocials({
+		url: "https://srcport.com/page/292",
+    text: "How to Split PCAP Files",
+		media: "https://srcport.com/resources/article-images/img-1-05-05-2016-03-08-48-a4PoFFO84V-979df69c7a9c319d0f1edc125d9d1fcb78cbea63.jpg",
+  	shares: ["email",
+						{ share: "twitter", hashtags: "networking, wireshark, security, infosec" },
+						"facebook",
+						"googleplus",
+						"linkedin",
+						"stumbleupon"]
+	});
+
+	$('#like-article').click(function() {
+		$.ajax(
+		{
+			method: 'POST',
+			url: '../../../../../../../../pages/articles/rate-article.php',
+			data:
+			{
+				vote: 1,
+				article: 292			}
+		}).done(function(resp)
+		{
+		  $('.rate-article').css('color', 'black');
+			$('#like-article').css('color', 'orange');
+		});
+	});
+
+	$('#dislike-article').click(function() {
+		$.ajax(
+		{
+			method: 'POST',
+			url: '../../../../../../../../pages/articles/rate-article.php',
+			data:
+			{
+				vote: 0,
+				article: 292			}
+		}).done(function()
+		{
+			$('.rate-article').css('color', 'black');
+			$('#dislike-article').css('color', 'red');
+		});
+	});
+
+});
+</script>
+
+</head><body class='hold-transition skin-blue sidebar-mini'><div class='wrapper'>
+
+  <!-- Main Header -->
+  <header class='main-header'>
+
+	  <!-- Logo -->
+	  <a href='https://srcport.com/articles' class='logo'>
+	    <!-- mini logo for sidebar mini 50x50 pixels -->
+	    <span class='logo-mini'><img style='max-width:100%; max-height:50px;' src=https://srcport.com/resources/web-resources/sp.png></span>
+	    <!-- logo for regular state and mobile devices -->
+	    <span class='logo-lg'><img style='max-width:100%; max-height:50px;' src=https://srcport.com/resources/web-resources/srcport.png></span>
+	  </a>
+
+	  <!-- Header Navbar -->
+	  <nav class='navbar navbar-static-top' role='navigation'>
+	    <!-- Sidebar toggle button-->
+	    <a href='#' class='sidebar-toggle' data-toggle='offcanvas' role='button'>
+	      <span class='sr-only'>Toggle navigation</span>
+	    </a>
+	    <!-- Navbar Right Menu -->
+	    <div class='navbar-custom-menu'>
+	      <ul class='nav navbar-nav'>
+	        <!-- Messages: style can be found in dropdown.less-->
+	        <li id='messages-area' class='dropdown messages-menu'>
+	          <!-- Menu toggle button -->
+
+			<a href='' class='dropdown-toggle' data-toggle='dropdown'>
+				<i class='fa fa-envelope-o'></i>
+
+			</a>
+
+			 <ul class='dropdown-menu'>
+			 	<li class='header'>You have 0 new messages</li>
+				<li>
+					<ul class='menu'>
+
+		</ul></li><span id='anchor-messages' style='display:none;'>0</span></ul>	        </li>
+	        <!-- /.messages-menu -->
+
+	        <!-- Notifications Menu -->
+	        <li id='notifications-area' class='dropdown notifications-menu'>
+	          <!-- Menu toggle button -->
+
+			<a href='' class='dropdown-toggle' data-toggle='dropdown'>
+				<i class='fa fa-bell-o'></i>
+		<span id='notifications-bubble' class='label label-warning'>1</span>
+			</a>
+			<ul class='dropdown-menu'>
+				<li class='header'>You have 1 new notifications</li>
+					<li>
+						<ul class='menu'>
+							<li>
+
+				<a href='' style='white-space: normal;'>
+					<i class='fa fa-star text-aqua'></i> Upgrade to a free account to fully unlock more features! - 1 year ago
+				</a>
+			</li></ul></li><span id='anchor-notifications' style='display:none;'>1</span></ul>	        </li>
+	        <!-- Tasks Menu -->
+	        <li id='issues-area' class='dropdown notifications-menu'>
+
+			<a href='' class='dropdown-toggle' data-toggle='dropdown'>
+				<i class='fa fa-flag-o'></i>
+
+			</a>
+			<ul class='dropdown-menu'>
+				<li class='header'>You have 0 new issues</li>
+					<li>
+						<ul class='menu'>
+							<li>
+		</li></ul></li><span id='anchor-issues' style='display:none;'>0</span></ul>	        </li>
+	        <!-- User Account Menu -->
+	        <li class='dropdown user user-menu'>
+	          <!-- Menu Toggle Button -->
+	          <a href='#' class='dropdown-toggle' data-toggle='dropdown'>
+	            <!-- The user image in the navbar-->
+	            <img src='https://srcport.com/resources/user-profile-images/guest.png' class='user-image' alt='User Image'>
+	            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+	            <span class='hidden-xs'>Guest</span>
+	          </a>
+	          <ul class='dropdown-menu'>
+	            <!-- The user image in the menu -->
+	            <li class='user-header'>
+	              <img src='https://srcport.com/resources/user-profile-images/guest.png' class='img-circle' alt='User Image'>
+
+	              <p>
+	                Guest	                <small>Member since the epoch</small>
+	              </p>
+	            </li>
+	            <!-- Menu Body -->
+	            <li class='user-body'>
+	              <div class='row'>
+	                <div class='col-xs-4 text-center'>
+	                  <a class='guest_locked' href='https://srcport.com/control'>Control</a>
+	                </div>
+	                <div class='col-xs-4 text-center'>
+	                  <a href='https://srcport.com/toolbox'>Toolbox</a>
+	                </div>
+                  <div class='col-xs-4 text-center'>
+	                  <a href='https://srcport.com/help'>Help</a>
+	                </div>
+	              </div>
+	              <!-- /.row -->
+	            </li>
+	            <!-- Menu Footer-->
+	            <li class='user-footer'>
+	              <div class='pull-left'>
+	                <a class='guest_locked' href='https://srcport.com/account' class='btn btn-default btn-flat'>Account</a>
+	              </div>
+	              <div class='pull-right'>
+	                <a class='guest_locked' href='https://srcport.com/logout' class='btn btn-default btn-flat'>Sign out</a>
+	              </div>
+	            </li>
+	          </ul>
+	        </li>
+	        <!-- Control Sidebar Toggle Button -->
+	        <li style='display:none;'>
+	          <a href='#' data-toggle='control-sidebar'><i class='fa fa-gears'></i></a>
+	        </li>
+	      </ul>
+	    </div>
+	  </nav>
+	</header>
+  <!-- Left side column. contains the logo and sidebar -->
+<aside class='main-sidebar'>
+
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class='sidebar'>
+
+    <!-- Sidebar user panel (optional) -->
+    <div class='user-panel'>
+      <div class='pull-left image'>
+        <img src='https://srcport.com/resources/user-profile-images/guest.png' class='img-circle' alt='User Image'>
+      </div>
+      <div class='pull-left info'>
+        <p>Guest</p>
+        <!-- Status -->
+              </div>
+    </div>
+
+    <!-- search form (Optional) -->
+    <form id="searchbox_011018966056289677217:qhub_iolab8"action='' method='get' class='sidebar-form' >
+    <script>
+    (function() {
+    var cx = '011018966056289677217:qhub_iolab8';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+})();
+</script>
+<div style="width:0px;overflow:hidden;height:0px;"> <!-- if you use display:none here, it doesn't work-->
+    <gcse:search></gcse:search>
+</div>
+      <div class='input-group'>
+        <input id='q' type='text' name='q' class='form-control' placeholder='Search...'/>
+        <input value="011018966056289677217:qhub_iolab8" name="cx" type="hidden"/>
+   			 <input value="FORID:11" name="cof" type="hidden"/>
+            <span class='input-group-btn'>
+              <button type='submit' name='search' id='search-btn' class='btn btn-flat'><i class='fa fa-search'></i>
+              </button>
+            </span>
+      </div>
+    </form>
+    <!-- /.search form -->
+
+    <!-- Sidebar Menu -->
+    <ul class='sidebar-menu'>
+
+      <li class='header'>Locations</li>
+      <li><a href='https://srcport.com'><i class='fa fa-home'></i> <span>Homepage</span></a></li>
+      <li class='guest_locked'><a href='https://srcport.com/control'><i class='fa fa-laptop'></i> <span>Control Panel</span></a></li>
+      <li><a href='https://srcport.com/toolbox'><i class='fa fa-briefcase'></i> <span>Toolbox</span></a></li>
+      <li><a href='https://srcport.com/articles'><i class='fa fa-newspaper-o'></i> <span>Articles</span></a></li>
+      <li class='guest_locked'><a href='https://srcport.com/articles/create'><i class='fa fa-pencil'></i> <span>Write Article</span></a></li>
+      <li><a href='https://srcport.com/pages/forums/index.php'><i class='fa fa-users'></i> <span>Forums</span></a></li>
+      <li><a href='https://srcport.com/bookshelf'><i class='fa fa-amazon'></i> <span>Bookshelf</span></a></li>
+      <li><a href='https://srcport.com/help'><i class='fa fa-book'></i> <span>Help</span></a></li>
+      <li><a href='https://srcport.com/login'><i class='fa fa-sign-in'></i> <span>Login | Register</span></a></li>
+      <li class='header'>Security Tools</li>
+
+        		<li class='treeview'>
+        		<a href><i class='fa fa-server'></i> <span>Utilities</span> <i class='fa fa-angle-left pull-right'></i></a>
+       			<ul class='treeview-menu'>
+      		<li><a href='https://srcport.com/utilities/whois/'>Whois</a></li><li><a href='https://srcport.com/utilities/database-checker/'>Automater</a></li><li><a href='https://srcport.com/utilities/geo-lookup/'>Geographical Lookup</a></li><li><a href='https://srcport.com/utilities/search-exploitdb/'>Search ExploitDB</a></li><li><a href='https://srcport.com/utilities/my-ip/'>What's My IP?</a></li><li><a href='https://srcport.com/data-mining/google-hacking/'>Google Hacking</a></li></ul></li>
+        		<li class='treeview'>
+        		<a href><i class='fa fa-bell-o'></i> <span>Recon</span> <i class='fa fa-angle-left pull-right'></i></a>
+       			<ul class='treeview-menu'>
+      		<li><a href='https://srcport.com/host-discovery/ping/'>Ping</a></li><li><a href='https://srcport.com/network-discovery/traceroute/'>Traceroute</a></li><li><a href='https://srcport.com/network-discovery/tracepath/'>Tracepath</a></li><li><a href='https://srcport.com/name-servers/nslookup/'>NSLookup</a></li><li><a href='https://srcport.com/name-servers/dnsenum/'>DNS Enumeration</a></li><li><a href='https://srcport.com/network-discovery/intrace/'>InTrace</a></li></ul></li>
+        		<li class='treeview'>
+        		<a href><i class='fa fa-wpforms'></i> <span>Web Servers</span> <i class='fa fa-angle-left pull-right'></i></a>
+       			<ul class='treeview-menu'>
+      		<li><a href='https://srcport.com/web-servers/http-headers/'>HTTP Headers</a></li><li><a href='https://srcport.com/web-servers/html-grabber/'>HTML Grabber</a></li><li><a href='https://srcport.com/web-servers/email-miner/'>Email Miner</a></li><li><a href='https://srcport.com/web-servers/custom-wordlist-generator/'>Custom Wordlist Generator</a></li></ul></li>
+      <li class='header'>Tools</li>
+      <li><a href='https://srcport.com/toolbox'><i class='fa fa-briefcase'></i> <span>Pentest Tools</span></a></li>
+      <li><a href='https://srcport.com/smart-news'><i class='fa fa-universal-access'></i> <span>Smart News <span style='margin-right:5px;' class='label label-warning pull-right'>Beta</span></span></a></li>
+      <li><a href='https://srcport.com/ranker'><i class='fa fa-link'></i> <span>Ranker <span style='margin-right:5px;' class='label label-success pull-right'>New</span></span></a></li>
+
+      <li class='header'>Account</li>
+      <li class='guest_locked'><a href='https://srcport.com/account'><i class='fa fa-street-view'></i> <span>My Account</span></a></li>
+      <li class='guest_locked'><a href='https://srcport.com/email/'><i class='fa fa-envelope-o'></i> <span>Email Preferences</span></a></li>
+      <li class='guest_locked'><a href='https://srcport.com/logout'><i class='fa fa-sign-out'></i> <span>Sign out</span></a></li>
+
+      <li class='header'></li>
+
+
+	<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+	<!-- sidepanel ad -->
+	<ins class='adsbygoogle'
+		 style='display:inline-block;width:230px;height:300px'
+		 data-ad-client='ca-pub-6839019030596932'
+		 data-ad-slot='9095432371'></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	    </ul>
+    <!-- /.sidebar-menu -->
+  </section>
+  <!-- /.sidebar -->
+</aside>
+
+<!-- Content Wrapper. Contains page content -->
+<div class='content-wrapper'>
+<!-- Author Header Block -->
+<div class="row" id="header-row">
+  <div class="col-md-12" style="padding:0px;">
+    <div class="box box-widget widget-user" style="margin-bottom:0px;">
+      <div class="widget-user-header bg-black" style="background: url('../../../../../../../resources/user-profile-images/guest-background.jpg') center center;">
+        <div style="background-color: rgba(32, 46, 44, 0.8); display:inline-block; padding:10px;">
+          <h3 class="widget-user-username">Tech</h3>
+         </div>
+      </div>
+      <div style="width:90px !important; height:90px !important;" class="widget-user-image">
+        <img class="img-circle img-circle-fix" src="https://srcport.com/resources/user-profile-images/default.png" alt="User Avatar">
+      </div>
+      <div class="box-footer">
+        <div class="row">
+          <div class="col-sm-2 border-right">
+            <div class="description-block">
+              <h5 class="description-header"><a href="https://srcport.com/authors/1/Liam">Liam</a></h5>
+              <span class="description-text">Written by</span>
+            </div>
+          </div>
+          <div class="col-sm-8 border-right">
+            <div class="description-block">
+              <h1>How to Split PCAP Files</h1>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="description-block">
+              <h5 class="description-header">May 5, 2016, 11:08pm</h5>
+              <span class="description-text">Published</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Image Block -->
+
+<div class='row'>
+	<div class='box-body col-md-8 col-md-offset-2' id='main-image-box'>
+		<div class='box-header with-border' style='margin-bottom:10px; height:50px;'>
+			<h3 class='box-title'></h3>
+      <div style='font-size:20px; margin-top:-15px;'>
+      	<span class='rate-article' id='like-article'>Like: <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span>
+        <span class='rate-article' id='dislike-article'>Dislike: <i class="fa fa-thumbs-o-down" aria-hidden="true"></i></span>
+      </div>
+			<div id='sm-area' class='box-tools pull-right'>
+
+			</div>
+		</div>
+
+
+		<a class='fancybox' href='https://srcport.com/resources/article-images/img-1-05-05-2016-03-08-47-DVuvuv48XP-979df69c7a9c319d0f1edc125d9d1fcb78cbea63.jpg'>
+			<img id='main-image' class='center-block img-responsive' alt='wireshark window showing network traffic'
+			 src='https://srcport.com/resources/article-images/img-1-05-05-2016-03-08-47-DVuvuv48XP-979df69c7a9c319d0f1edc125d9d1fcb78cbea63.jpg'>
+		</a>
+
+	</div>
+</div>
+
+<div class='row'>
+						<div class='box-body col-md-8 col-md-offset-2 change_text_color article-content-areas' id='article_content_1' data-c-type='text' style='margin-bottom:0px; border-bottom:0px;'><p>When you have a large PCAP file sometimes you'll need to split it up into multiple smaller versions by using some variable. In this example I have a 4GB PCAP file that i'll be splitting up based on the connection flows between the hosts. <br />
+<br />
+You'll need a free application called <span class='replace_green'>SplitCap</span> which you can find at <a style='text-decoration:underline;' class='common_link' target='_blank' href='https://www.netresec.com/?page=SplitCap'>https://www.netresec.com/?page=SplitCap</a>.</p></div>
+					</div><div class='row'>
+						<div class='box-body col-md-8 col-md-offset-2 article-content-areas' id='article_content_2' data-c-type='image' style='margin-bottom:0px; border-bottom:0px;'><a class='fancybox' href='https://srcport.com/resources/article-images/img-1-05-05-2016-03-08-47-6ZeBQpsp6o-e6990a133b3d2f03a62e5e451cbda28451b10cb9.png'>
+							<img alt='wireshark file logo' class='center-block img-responsive article-images'
+							src='https://srcport.com/resources/article-images/img-1-05-05-2016-03-08-47-6ZeBQpsp6o-e6990a133b3d2f03a62e5e451cbda28451b10cb9.png'>
+						</a></div>
+					</div><div class='row'>
+						<div class='box-body col-md-8 col-md-offset-2 change_text_color article-content-areas' id='article_content_3' data-c-type='text' style='margin-bottom:0px; border-bottom:0px;'><p>Using the terminal, launch the tool and pass in the arguments: <span class='replace_orange'>SplitCap.exe -r &lt;file&gt; -s &lt;split type&gt;</span>. For the -s flag you can pass in the following arguments: <br />
+<ul style='margin-top:-15px; margin-bottom:-15px;' class='replace_list'><br />
+<li>flow</li><br />
+<li>host</li><br />
+<li>hostpair</li><br />
+<li>nosplit</li><br />
+<li>session</li><br />
+<li>seconds &lt;n&gt;</li><br />
+<li>packets &lt;n&gt;</li></ul><p class='article_content_items'><br />
+<br />
+You can also get more details about these commands by simply executing the program with no commands. </p></div>
+					</div><div class='row'>
+						<div class='box-body col-md-8 col-md-offset-2 article-content-areas' id='article_content_4' data-c-type='image' style='margin-bottom:0px; border-bottom:0px;'><a class='fancybox' href='https://srcport.com/resources/article-images/img-1-05-05-2016-03-08-47-ZuKhJUYbH3-896142f28c846f13a2131fc38d2f2a4776c1291d.png'>
+							<img alt='wireshark file listing' class='center-block img-responsive article-images'
+							src='https://srcport.com/resources/article-images/img-1-05-05-2016-03-08-47-ZuKhJUYbH3-896142f28c846f13a2131fc38d2f2a4776c1291d.png'>
+						</a></div>
+					</div><div class='row'>
+						<div class='box-body col-md-8 col-md-offset-2 change_text_color article-content-areas' id='article_content_5' data-c-type='text'><p>After you run the program with the flow tag for example, you'll get a folder of new PCAP files. </p></div>
+					</div><div class='row'>
+						<div class='box-body col-md-8 col-md-offset-2' style='border:none;'>
+
+		<div id='disqus_thread'></div>
+		<script>
+
+		var disqus_config = function () {
+			this.page.url = "https://srcport.com/page/292";
+			this.page.identifier = "292";
+		};
+
+		(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//srcport.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+
+		</script>
+
+		<noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+
+ 	  <script id='dsq-count-scr' src='//srcport.disqus.com/count.js' async></script>
+	</div>
+					</div>
+</div> <!-- Content wrapper -->
+<!-- Main Footer -->
+<footer class='main-footer'>
+  <!-- To the right -->
+  <div id='sm-footer-area' class='pull-right hidden-xs'>
+
+  </div>
+  <!-- Default to the left -->
+  <strong>Copyright &copy; 2016 <a href='https://srcport.com'>Srcport</a>.</strong> All rights reserved.
+</footer>
+<!-- Control Sidebar -->
+<aside class='control-sidebar control-sidebar-dark'>
+  <!-- Create the tabs -->
+  <ul class='nav nav-tabs nav-justified control-sidebar-tabs'>
+    <li class='active'><a href='#control-sidebar-home-tab' data-toggle='tab'><i class='fa fa-home'></i></a></li>
+    <li><a href='#control-sidebar-settings-tab' data-toggle='tab'><i class='fa fa-gears'></i></a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class='tab-content'>
+    <!-- Home tab content -->
+    <div class='tab-pane active' id='control-sidebar-home-tab'>
+      <h3 class='control-sidebar-heading'>Recent Activity</h3>
+      <ul class='control-sidebar-menu'>
+        <li>
+          <a href='javascript::;'>
+            <i class='menu-icon fa fa-birthday-cake bg-red'></i>
+
+            <div class='menu-info'>
+              <h4 class='control-sidebar-subheading'>Langdon's Birthday</h4>
+
+              <p>Will be 23 on April 24th</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <!-- /.control-sidebar-menu -->
+
+      <h3 class='control-sidebar-heading'>Tasks Progress</h3>
+      <ul class='control-sidebar-menu'>
+        <li>
+          <a href='javascript::;'>
+            <h4 class='control-sidebar-subheading'>
+              Custom Template Design
+              <span class='label label-danger pull-right'>70%</span>
+            </h4>
+
+            <div class='progress progress-xxs'>
+              <div class='progress-bar progress-bar-danger' style='width: 70%'></div>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <!-- /.control-sidebar-menu -->
+
+    </div>
+    <!-- /.tab-pane -->
+    <!-- Stats tab content -->
+    <div class='tab-pane' id='control-sidebar-stats-tab'>Stats Tab Content</div>
+    <!-- /.tab-pane -->
+    <!-- Settings tab content -->
+    <div class='tab-pane' id='control-sidebar-settings-tab'>
+      <form method='post'>
+        <h3 class='control-sidebar-heading'>General Settings</h3>
+
+        <div class='form-group'>
+          <label class='control-sidebar-subheading'>
+            Report panel usage
+            <input type='checkbox' class='pull-right' checked>
+          </label>
+
+          <p>
+            Some information about this general settings option
+          </p>
+        </div>
+        <!-- /.form-group -->
+      </form>
+    </div>
+    <!-- /.tab-pane -->
+  </div>
+</aside>
+<!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class='control-sidebar-bg'></div>
+</div>
+
+    </body>
+    </html>

@@ -29,7 +29,7 @@ function scan_dir($dir) {
 
 function etiquetado($file) {
 
-    $tags = fopen("./tags/MITM.txt", "r") or die("Unable to open file!");
+    $tags = fopen("./tags/intrusion02.txt", "r") or die("Unable to open file!");
     // Output one line until end-of-file
 
     $times;
@@ -40,6 +40,7 @@ function etiquetado($file) {
 
         $timestamp = explode(":", $linea);
         $times[$count] = floatval($timestamp[1]);
+
         $count++;
         //echo floatval($timestamp[1])."<br />";
     }
@@ -50,6 +51,9 @@ function etiquetado($file) {
     // Output one line until end-of-file
     $etiquetado = "";
     $firstLine = TRUE;
+
+
+    //$conta =0;
     while (!feof($myfile)) {
         if ($firstLine) {
             $linea = fgets($myfile);
@@ -60,6 +64,20 @@ function etiquetado($file) {
             $linea = fgets($myfile);
 
             if (!$linea == '') {
+                /* $contenido = analisisTrama($linea, $times);
+                  if($conta == 20)
+                  {
+                  //echo $contenido."< br />";
+                  $var=str_getcsv($contenido);
+                  echo count(explode("\",", $contenido));
+                  echo "<br />";
+
+                  echo "<br />";echo "<br />";echo "<pre>";
+                  print_r($var);
+                  echo "</pre>";echo "<br />";echo "<br />";echo "<br />";
+                  }
+                  $conta ++; */
+                //$tramas = explode(",", $contenido);
                 $etiquetado .= analisisTrama($linea, $times);
             }
         }
@@ -71,28 +89,92 @@ function etiquetado($file) {
 }
 
 function analisisTrama($trama, $times) {
-    $tramas = explode(",", $trama);
+    $tramas = str_getcsv($trama);
     $lenght = count($times);
     //echo "<br /><br />".$lenght."<br /><br />";
-
-    $timeTrama = floatval(substr($tramas[2], 1, -1));
+    $timeTrama = floatval($tramas[2]);
     //echo $timeTrama;
     $linea = "";
+
+    $comas = -2;
+    $ncomas = -1;
+    for ($r = 0; $r < count($tramas); $r++) {
+
+        $ncomas = count(explode(",", $tramas[$r]));
+        //echo " " . $ncomas . " ";
+        if ($ncomas > $comas) {
+            $comas = $ncomas;
+        }
+    }
+    //echo "<br />";
+    //echo "Total " . $comas;
+    //echo "<br />";
     for ($i = 0; $i < $lenght; $i = $i + 2) {
+
         if ($timeTrama >= $times[$i] && $timeTrama <= $times[$i + 1]) {
-           // echo "intrusion- $timeTrama<br />";
-             return $linea = preg_replace("[\n|\r|\n\r]", '', $trama) . ",mitm\n";
-        }
-        else{
+
+
+            if ($comas > 1) {
+                $lineaEspecial = "";
+                for ($j = 0; $j < $comas; $j++) {
+                    $concat = '';
+                    for ($m = 0; $m < count($tramas); $m++) {
+                        $desanidador = explode(",", $tramas[$m]);
+                        if (isset($desanidador[$j])) {
+                            $tramas[$m] = $desanidador[$j];
+                        }
+
+
+                        if ($m == count($tramas) - 1) {
+
+                            $concat .= "\"" . $tramas[$m] . "\"" . ",intrusion\n";
+                        } else {
+                            $concat .= "\"" . $tramas[$m] . "\",";
+                        }
+                    }
+
+                    $lineaEspecial .= $concat;
+                }
+                return $lineaEspecial;
+            } else {
+                return $linea = preg_replace("[\n|\r|\n\r]", '', $trama) . ",intrusion\n";
+            }
+        } else {
+
+
+
             //echo "normal- $timeTrama<br />";
-           $linea = preg_replace("[\n|\r|\n\r]", '', $trama) . ",normal\n";
+
         }
-
-
         //echo $times[$i+1];
         //echo $i."<br />";
     }
+      if ($comas > 1) {
+                $lineaEspecial = "";
+                for ($j = 0; $j < $comas; $j++) {
+                    $concat = '';
+                    for ($m = 0; $m < count($tramas); $m++) {
+                        $desanidador = explode(",", $tramas[$m]);
+                        if (isset($desanidador[$j])) {
+                            $tramas[$m] = $desanidador[$j];
+                        }
+
+
+                        if ($m == count($tramas) - 1) {
+
+                            $concat .= "\"" . $tramas[$m] . "\"" . ",normal\n";
+                        } else {
+                            $concat .= "\"" . $tramas[$m] . "\",";
+                        }
+                    }
+
+                    $lineaEspecial .= $concat;
+                }
+                return $lineaEspecial;
+            } else {
+                return $linea = preg_replace("[\n|\r|\n\r]", '', $trama) . ",normal\n";
+            }
     //todoo inicio y fin de los timestamp
     //echo $tramas[2]."<br />";
-    return $linea;
+   // return $linea;
 }

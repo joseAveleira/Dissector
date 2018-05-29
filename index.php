@@ -4,7 +4,9 @@
     <head>
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="shortcut icon" href="fonts/favicon.png" type="image/x-icon">
         <!--Import materialize.css-->
+        <title>Dissector</title>
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="css/myCss.css"  media="screen,projection"/>
         <!--Let browser know website is optimized for mobile -->
@@ -48,6 +50,10 @@
                         <div class=" col s2">
                             <input type="checkbox" id="test3" name="typeFields[]" value="awdFields" />
                             <label for="test3">Awd Dataset fields</label>
+                        </div>
+                        <div class=" col s2">
+                            <input type="checkbox" id="test4" name="typeFields[]" value="zigbeeFields" />
+                            <label for="test4">zigbee fields</label>
                         </div>
 
                     </div>

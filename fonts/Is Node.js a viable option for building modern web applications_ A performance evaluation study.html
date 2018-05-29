@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!-- saved from url=(0124)https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0 -->
+<html dir="ltr" mozdisallowselectionprint="" moznomarginboxes=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script async="" src="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/analytics.js.descarga"></script><script type="text/javascript" src="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/fc20a8d468"></script><script src="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/nr-1071.min.js.descarga"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"agent":"","beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"fc20a8d468","applicationID":"9047002","applicationTime":5485.3207,"transactionName":"b1MBMEpWWxEFBkFQWVYZJhxIRVARFw9GFnF9YkxLTl5QFQEXGg==","queueTime":0,"ttGuid":"9adfcbb7720ce8","agentToken":null}; window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="google" content="notranslate">
+        <title>Is Node.js a viable option for building modern web applications? A performance evaluation study</title>
+
+        <link rel="stylesheet" href="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/main.css">
+        <script src="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/compatibility.js.descarga"></script>
+
+        <link rel="resource" type="application/l10n" href="https://www.mendeley.com/viewer/assets/locale/locale.properties">
+
+        <script src="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/l10n.js.descarga"></script>
+        <script src="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/pdf.js.descarga"></script>
+        <script src="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/satelliteLib-4a7497b2b1d1900fe42ef2c13e32daeedf9c1642.js.descarga"></script><script src="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/satellite-564a178a64746d13a90001ed.js.descarga"></script>
+
+        <style id="selectionStyle">.highlight-tool ::selection {background: #fff5ad !important;} .highlight-tool ::-moz-selection {background: #fff5ad !important;}</style>
+    <script src="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/s-code-contents-c2ce46bc38c33978e51d051ebba7953b7176186a.js.descarga"></script></head>
+
+    <body tabindex="1" class="">
+        <div id="outerContainer">
+
+
+
+            <div id="mainContainer">
+
+                <div id="secondaryToolbar" class="secondaryToolbar hidden doorHangerRight">
+                    <div id="secondaryToolbarButtonContainer">
+                        <button id="secondaryPresentationMode" class="secondaryToolbarButton presentationMode visibleLargeView" title="Switch to Presentation Mode" tabindex="51">
+                            <span>Presentation Mode</span>
+                        </button>
+
+                        <button id="secondaryOpenFile" class="secondaryToolbarButton openFile visibleLargeView" title="Open File" tabindex="52">
+                            <span>Open</span>
+                        </button>
+
+                        <button id="secondaryPrint" class="secondaryToolbarButton print visibleMediumView" title="Print" tabindex="53">
+                            <span>Print</span>
+                        </button>
+
+                        <button id="secondaryDownload" class="secondaryToolbarButton download visibleMediumView" title="Download" tabindex="54">
+                            <span>Download</span>
+                        </button>
+
+                        <a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=1&amp;zoom=auto,-352,666" id="secondaryViewBookmark" class="secondaryToolbarButton bookmark visibleSmallView" title="Current view (copy or open in new window)" tabindex="55">
+                            <span>Current View</span>
+                        </a>
+
+                        <div class="horizontalToolbarSeparator visibleLargeView"></div>
+
+                        <button id="firstPage" class="secondaryToolbarButton firstPage" title="Go to First Page" tabindex="56" disabled="">
+                            <span>Go to First Page</span>
+                        </button>
+                        <button id="lastPage" class="secondaryToolbarButton lastPage" title="Go to Last Page" tabindex="57">
+                            <span>Go to Last Page</span>
+                        </button>
+
+                        <div class="horizontalToolbarSeparator"></div>
+
+                        <button id="pageRotateCw" class="secondaryToolbarButton rotateCw" title="Rotate Clockwise" tabindex="58">
+                            <span>Rotate Clockwise</span>
+                        </button>
+                        <button id="pageRotateCcw" class="secondaryToolbarButton rotateCcw" title="Rotate Counterclockwise" tabindex="59">
+                            <span>Rotate Counterclockwise</span>
+                        </button>
+
+                        <div class="horizontalToolbarSeparator"></div>
+
+                        <div class="horizontalToolbarSeparator"></div>
+
+                        <button id="documentProperties" class="secondaryToolbarButton documentProperties" title="Document Properties…" tabindex="61">
+                            <span>Document Properties…</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="toolbar" class="toolbar">
+<div id="toolbarContainer">
+    <button id="sidebarToggle" class="toolbarButton icon icon-pages-and-contents" title="Toggle Sidebar">
+    </button>
+    <div class="toolbarLabel">Zoom</div>
+    <button id="zoomOut" class="toolbarButton icon icon-zoom-out" title="Zoom Out"></button>
+    <div id="scaleSelectContainer" class="toolbarSelect">
+        <select id="scaleSelect" title="Zoom" tabindex="23">
+            <option id="pageAutoOption" title="" value="auto" selected="selected">Automatic</option>
+            <option id="pageActualOption" title="" value="page-actual">Actual Size</option>
+            <option id="pageFitOption" title="" value="page-fit">Fit Page</option>
+            <option id="pageWidthOption" title="" value="page-width">Full Width</option>
+            <option id="customScaleOption" title="" value="custom"></option>
+            <option title="" value="0.5" data-l10n-args="{ &quot;scale&quot;: 50 }">50%</option>
+            <option title="" value="0.75" data-l10n-args="{ &quot;scale&quot;: 75 }">75%</option>
+            <option title="" value="1" data-l10n-args="{ &quot;scale&quot;: 100 }">100%</option>
+            <option title="" value="1.25" data-l10n-args="{ &quot;scale&quot;: 125 }">125%</option>
+            <option title="" value="1.5" data-l10n-args="{ &quot;scale&quot;: 150 }">150%</option>
+            <option title="" value="2" data-l10n-args="{ &quot;scale&quot;: 200 }">200%</option>
+            <option title="" value="3" data-l10n-args="{ &quot;scale&quot;: 300 }">300%</option>
+            <option title="" value="4" data-l10n-args="{ &quot;scale&quot;: 400 }">400%</option>
+        </select>
+    </div>
+    <button id="zoomIn" class="toolbarButton icon icon-zoom-in" title="Zoom In"></button>
+    <div class="logo icon icon-mendeley-logo"></div>
+
+    <div id="profile" class="dropdown toolbarDropdown pull-right">
+        <button id="profileToggle" class="trigger">
+            <img class="profile-picture" src="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/QXZlbGVpcmEgTWF0YQ">
+            <span class="icon icon-caret"></span>
+        </button>
+        <div class="menu">
+            <ul>
+                <li class="profile-button">
+                    <a class="profile-link" target="_blank" href="https://www.mendeley.com/profiles/jose-aveleira-mata/">
+                        <span class="icon icon-user"></span>
+                        <div class="profile-button-content">
+                            <div class="profile-name">Jose Aveleira Mata</div>
+                            <div class="completition-bar">
+                                <div class="percentage-bar" style="width: 10%;"></div>
+                            </div>
+                            <div class="percentage-value">10%</div>
+                        </div>
+                    </a>
+
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.mendeley.com/account-settings/">
+                        <span class="icon icon-settings"></span>Settings
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.mendeley.com/contact-support/">
+                        <span class="icon icon-support"></span>Support
+                    </a>
+                </li>
+                <li class="vspacer"></li>
+                <li class="logout-button">
+                    <a href="https://www.mendeley.com/viewer/logout">
+                        <span class="icon icon-logout"></span>Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="pdfFeatures" class="dropdown toolbarDropdown pull-right">
+        <button id="pdfToolsToggle" class="trigger toolbarButton icon icon-dots"></button>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a id="download" title="Download">
+                        <span class="icon icon-download"></span>Download
+                    </a>
+                </li>
+                <li>
+                    <a id="print" title="Print">
+                        <span class="icon icon-print"></span>Print
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="colorTool" class="dropdown toolbarDropdown pull-right color-picker">
+        <button class="trigger toolbarButton color-picker-trigger">
+            <span class="indicator"></span><span class="icon icon-caret"></span>
+        </button>
+
+        <div class="menu"></div>
+    </div>
+
+    <button id="highlightTool" class="toolbarButton pull-right icon icon-highlight" title="Create highlight"></button>
+    <button id="stickyNoteTool" class="toolbarButton pull-right icon icon-annotation" title="Create sticky note"></button>
+
+    <hr>
+
+    <button id="panTool" class="toolbarButton pull-right icon icon-pan" title="Enable pan mode"></button>
+    <button id="selectTool" class="toolbarButton pull-right icon icon-select toggled" title="Enable text selection"></button>
+
+    <hr>
+
+
+    <div id="findMsg" class="toolbarLabel" style="display:none;"></div>
+    <input type="checkbox" id="findHighlightAll" class="toolbarField" style="display:none;">
+    <input type="checkbox" id="findMatchCase" class="toolbarField" style="display:none;">
+
+    <button class="findButton icon icon-right-bracket pull-right" title="" id="findNext"></button>
+    <button class="findButton icon icon-left-bracket pull-right" title="" id="findPrevious"></button>
+    <div id="scaleSelectContainer" class="toolbarInput pull-right">
+        <input id="findInput" class="toolbarField" placeholder="Search">
+    </div>
+    <div class="findLabel icon icon-search pull-right"></div>
+</div>
+<div id="loadingBar" style="width: calc(100% - 17px);" class="hidden">
+    <div class="progress" style="height: 100%; width: 100%;">
+        <div class="glimmer">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="toolbar" style="display:none;">
+    <div id="toolbarContainer">
+        <div id="toolbarViewer">
+            <div id="toolbarViewerLeft">
+
+                <div class="toolbarButtonSpacer"></div>
+                <button id="viewFind" class="toolbarButton group hiddenSmallView" title="Find in Document" tabindex="12">
+                     <span>Find</span>
+                </button>
+
+
+            </div>
+            <div id="toolbarViewerRight">
+                <button id="presentationMode" class="toolbarButton presentationMode hiddenLargeView" title="Switch to Presentation Mode" tabindex="31">
+                    <span>Presentation Mode</span>
+                </button>
+
+                <button id="openFile" class="toolbarButton openFile hiddenLargeView" title="Open File" tabindex="32">
+                    <span>Open</span>
+                </button>
+
+
+
+                <a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=1&amp;zoom=auto,-352,666" id="viewBookmark" class="toolbarButton bookmark hiddenSmallView" title="Current view (copy or open in new window)" tabindex="35">
+                    <span>Current View</span>
+                </a>
+
+                <div class="verticalToolbarSeparator hiddenSmallView"></div>
+
+                <button id="secondaryToolbarToggle" class="toolbarButton" title="Tools" tabindex="36">
+                    <span>Tools</span>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+                <menu type="context" id="viewerContextMenu">
+                    <menuitem id="contextFirstPage" label="First Page"></menuitem>
+                    <menuitem id="contextLastPage" label="Last Page"></menuitem>
+                    <menuitem id="contextPageRotateCw" label="Rotate Clockwise"></menuitem>
+                    <menuitem id="contextPageRotateCcw" label="Rotate Counter-Clockwise"></menuitem>
+                </menu>
+
+                <div id="viewerContainer" tabindex="0">
+                    <div id="loader">
+                        <div class="loader-spinner">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                            <div class="bounce4"></div>
+                        </div>
+                    </div>
+                    <div id="viewer" class="pdfViewer selection-tool"><div id="pageContainer1" class="page" data-loaded="true" style="width: 732px; height: 1110px;"><div class="canvasWrapper" style="width: 732px; height: 1110px;"><canvas id="page1" width="732" height="1110" style="width: 732px; height: 1110px;"></canvas></div><div class="highlights-layer" data-rendered="true" id="highlightslayer1" style="width: 732px; height: 1110px;"><canvas width="732" height="1110" style="width: 732px; height: 1110px;"></canvas></div><div class="textLayer" style="width: 732px; height: 1110px;"><span data-canvas-width="178.62189439759462" style="left: 84.57px; top: 56.8063px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.00045);">Computing (2015) 97:1023–1044</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 263.192px; top: 66.0915px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="178.6152525664991" style="left: 84.57px; top: 71.7463px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.00049);">DOI 10.1007/s00607-014-0394-9</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 263.185px; top: 81.0314px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="465.81004577104926" style="left: 84.57px; top: 154.503px; font-size: 21.5857px; line-height: 21.5857px; font-family: serif; transform: scaleX(1.05457);">Is Node.js a viable option for building modern web</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 550.38px; top: 169.592px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="423.4028451244479" style="left: 84.57px; top: 179.402px; font-size: 21.5857px; line-height: 21.5857px; font-family: serif; transform: scaleX(1.06734);">applications? A performance evaluation study</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 507.973px; top: 194.491px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="146.24100178072717" style="left: 84.57px; top: 230.705px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.06791);">Ioannis K. Chaniotis</span><span data-canvas-width="5.595660192916666" style="left: 237.737px; top: 225.707px; font-size: 16.6043px; line-height: 16.6043px; font-family: sans-serif; transform: scaleX(1.01225);">·</span><span data-canvas-width="213.97671744959504" style="left: 250.261px; top: 230.705px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.05727);">Kyriakos-Ioannis D. Kyriakou</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 464.238px; top: 242.312px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="5.595660192916666" style="left: 471.214px; top: 225.707px; font-size: 16.6043px; line-height: 16.6043px; font-family: sans-serif; transform: scaleX(1.01225);">·</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 476.809px; top: 242.312px; font-size: 0px; line-height: 0px; font-family: sans-serif;"> </span><span data-canvas-width="143.7818999238392" style="left: 84.57px; top: 250.64px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.03785);">Nikolaos D. Tselikas</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 228.352px; top: 262.247px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="487.5496093405588" style="left: 84.57px; top: 357.842px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(0.998465);">Received: 5 November 2013 / Accepted: 15 March 2014 / Published online: 28 March 2014</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 572.12px; top: 367.127px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="159.44052051932695" style="left: 84.57px; top: 373.621px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.00034);">© Springer-Verlag Wien 2014</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 244.011px; top: 382.906px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="61.761476716833336" style="left: 84.57px; top: 425.195px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.09826);">Abstract</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 146.331px; top: 436.802px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="491.40689314023166" style="left: 155.296px; top: 425.195px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00183);">We examine the implications of end-to-end web application development,</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.703px; top: 436.802px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1330490529874" style="left: 84.57px; top: 445.116px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.987504);">in the social web era. The paper describes a distributed architecture, suitable for mod-</span><span data-canvas-width="562.1695778891841" style="left: 84.57px; top: 465.036px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00541);">ern web application development, as well as the interactivity components associated</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.74px; top: 476.642px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.2077687631496" style="left: 84.57px; top: 484.971px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.04953);">with it. Furthermore, we conducted a series of stress tests, on popular server side</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.778px; top: 496.577px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.2061092321372" style="left: 84.57px; top: 504.891px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00598);">technologies. The PHP/Apache stack was found inefficient to address the increasing</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.776px; top: 516.498px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1280674623705" style="left: 84.57px; top: 524.811px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.978329);">demand in network traffic. Nginx was found more than 2.5 times faster in input/output</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.698px; top: 536.418px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1596161435613" style="left: 84.57px; top: 544.746px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.993066);">(I/O) operations than Apache, whereas Node.js outperformed both. Node.js, although</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.73px; top: 556.353px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.2359960273233" style="left: 84.57px; top: 564.667px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.97652);">excellent in I/O operations and resource utilization, was found lacking in serving static</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.806px; top: 576.273px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.2011276378677" style="left: 84.57px; top: 584.602px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01571);">files using its built in HTTP server, while Nginx performed great at this task. So, in</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.771px; top: 596.208px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1778809356723" style="left: 84.57px; top: 604.522px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.998876);">order to address efficiency, an Nginx server could be placed in-front and proxy static</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.748px; top: 616.128px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1695784907591" style="left: 84.57px; top: 624.442px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.02302);">file requests, allowing the Node.js processes to only handle dynamic content. Such</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.74px; top: 636.049px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.166258402587" style="left: 84.57px; top: 644.377px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.02958);">a configuration can offer a better infrastructure in terms of efficiency and scalabil-</span><span data-canvas-width="562.1728995912978" style="left: 84.57px; top: 664.298px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01064);">ity, replacing the aged PHP/Apache stack. Furthermore we have found that building</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.743px; top: 675.904px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1612756152958" style="left: 84.57px; top: 684.218px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.02992);">cross platform applications based on web technologies, is both feasible and highly</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.731px; top: 695.824px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1596177139992" style="left: 84.57px; top: 704.153px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00372);">productive, especially when addressing stationary and mobile devices, as well as the</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.73px; top: 715.759px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1430109311129" style="left: 84.57px; top: 724.073px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.04376);">fragmentation among them. Our study concludes that Node.js offers client-server</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.713px; top: 735.68px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1529739551039" style="left: 84.57px; top: 743.993px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00927);">development integration, aiding code reusability in web applications, and is the per-</span><span data-canvas-width="392.3637078861706" style="left: 84.57px; top: 763.929px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.997884);">fect tool for developing fast, scalable network applications.</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 476.934px; top: 775.535px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="78.23317246473331" style="left: 84.57px; top: 870.752px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.00041);">I. K. Chaniotis</span><span data-canvas-width="3.6928129629333335" style="left: 166.109px; top: 866.753px; font-size: 13.2835px; line-height: 13.2835px; font-family: sans-serif; transform: scaleX(0.835037);">·</span><span data-canvas-width="94.33277437154334" style="left: 173.13px; top: 870.752px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(0.995261);">K.-I. D. Kyriakou</span><span data-canvas-width="3.6928129629333335" style="left: 270.795px; top: 866.753px; font-size: 13.2835px; line-height: 13.2835px; font-family: sans-serif; transform: scaleX(0.835037);">·</span><span data-canvas-width="84.46977573316266" style="left: 277.8px; top: 870.752px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.01123);">N. D. Tselikas (</span><span data-canvas-width="16.4490359775" style="left: 362.28px; top: 861.651px; font-size: 19.2612px; line-height: 19.2612px; font-family: sans-serif; transform: scaleX(1.28045);">B</span><span data-canvas-width="4.4234054556" style="left: 376.74px; top: 870.752px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.00024);">)</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 381.163px; top: 880.037px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="428.36497524892684" style="left: 84.5708px; top: 886.531px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(0.999201);">Department of Informatics and Telecommunications, University of Peloponnese,</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 512.936px; top: 895.816px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="257.73709121269434" style="left: 84.5708px; top: 902.296px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.00026);">End of Karaiskaki street, 22100 Tripolis, Greece</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 342.308px; top: 911.581px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="112.5975866198" style="left: 84.5708px; top: 918.075px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.00049);">e-mail: ntsel@uop.gr</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 197.168px; top: 927.36px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="78.23317246473331" style="left: 84.5708px; top: 941.986px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.00041);">I. K. Chaniotis</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 162.804px; top: 951.271px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="133.26671241233333" style="left: 84.5708px; top: 957.765px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.00044);">e-mail: tst08037@uop.gr</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 217.837px; top: 967.05px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="94.33277437154334" style="left: 84.5708px; top: 981.675px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(0.995261);">K.-I. D. Kyriakou</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 178.904px; top: 990.961px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="133.26671241233333" style="left: 84.5708px; top: 997.44px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.00044);">e-mail: tst07086@uop.gr</span><span data-canvas-width="66.22682773026665" style="left: 580.545px; top: 1029.8px; font-size: 24.9067px; line-height: 24.9067px; font-family: sans-serif; transform: scaleX(1.59412);">123</span></div><div class="stickynotes-layer" id="stickynotelayer1" style="width: 732px; height: 1110px;"></div><div class="annotationLayer"><section class="annotLink" data-annotation-id="662" style="width: 54.993px; height: 22.998px; left: 334.074px; top: 27.418px; position: absolute; transform: matrix(1.66667, 0, 0, 1.66667, 0, 0); transform-origin: -334.074px -27.418px 0px;"><a title="http://crossmark.crossref.org/dialog/?doi=10.1007/s00607-014-0394-9&amp;domain=pdf" href="http://crossmark.crossref.org/dialog/?doi=10.1007/s00607-014-0394-9&amp;domain=pdf" target="_blank"></a></section></div></div><div id="pageContainer2" class="page" data-loaded="true" style="width: 732px; height: 1110px;"><div class="canvasWrapper" style="width: 732px; height: 1110px;"><canvas id="page2" width="732" height="1110" style="width: 732px; height: 1110px;"></canvas></div><div class="highlights-layer" data-rendered="true" id="highlightslayer2" style="width: 732px; height: 1110px;"><canvas width="732" height="1110" style="width: 732px; height: 1110px;"></canvas></div><div class="textLayer" style="width: 732px; height: 1110px;"><span data-canvas-width="26.57496983325333" style="left: 84.57px; top: 56.8063px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.00056);">1024</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 111.145px; top: 66.0915px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="107.35060413155347" style="left: 539.4px; top: 56.8063px; font-size: 13.2835px; line-height: 13.2835px; font-family: serif; transform: scaleX(1.0002);">I. K. Chaniotis et al.</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.75px; top: 66.0915px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="71.32225160726122" style="left: 84.57px; top: 98.4802px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.04529);">Keywords</span><span data-canvas-width="51.18119578233333" style="left: 172.53px; top: 98.4802px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00007);">Node.js</span><span data-canvas-width="4.616004550833334" style="left: 227.88px; top: 93.4823px; font-size: 16.6043px; line-height: 16.6043px; font-family: sans-serif; transform: scaleX(0.835034);">·</span><span data-canvas-width="147.2638285681785" style="left: 236.641px; top: 98.4802px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.995206);">End-to-end JavaScript</span><span data-canvas-width="4.616004550833334" style="left: 388.082px; top: 93.4823px; font-size: 16.6043px; line-height: 16.6043px; font-family: sans-serif; transform: scaleX(0.835034);">·</span><span data-canvas-width="81.4625177415533" style="left: 396.843px; top: 98.4802px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.997749);">WebSockets</span><span data-canvas-width="4.616004550833334" style="left: 482.508px; top: 93.4823px; font-size: 16.6043px; line-height: 16.6043px; font-family: sans-serif; transform: scaleX(0.835034);">·</span><span data-canvas-width="61.294894961875" style="left: 491.283px; top: 98.4802px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00002);">WebRTC</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 552.578px; top: 110.087px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="4.616004550833334" style="left: 556.744px; top: 93.4823px; font-size: 16.6043px; line-height: 16.6043px; font-family: sans-serif; transform: scaleX(0.835034);">·</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 561.36px; top: 110.087px; font-size: 0px; line-height: 0px; font-family: sans-serif;"> </span><span data-canvas-width="99.6342995145287" style="left: 84.57px; top: 118.415px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00026);">Real-time Web</span><span data-canvas-width="4.616004550833334" style="left: 188.385px; top: 113.417px; font-size: 16.6043px; line-height: 16.6043px; font-family: sans-serif; transform: scaleX(0.835034);">·</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 193.001px; top: 130.022px; font-size: 0px; line-height: 0px; font-family: sans-serif;"> </span><span data-canvas-width="220.2930056588826" style="left: 197.146px; top: 118.415px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.995763);">Software performance evaluation</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 417.439px; top: 130.022px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="250.16087972250003" style="left: 84.57px; top: 158.256px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.06399);">Mathematics Subject Classification</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 334.731px; top: 169.862px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="285.3454613754896" style="left: 351.528px; top: 158.256px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00325);">68M20 Performance evaluation; queueing;</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 636.873px; top: 169.862px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="71.91668672866669" style="left: 84.57px; top: 178.191px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.999958);">scheduling</span><span data-canvas-width="4.616004550833334" style="left: 160.89px; top: 173.193px; font-size: 16.6043px; line-height: 16.6043px; font-family: sans-serif; transform: scaleX(0.835034);">·</span><span data-canvas-width="148.0110237204531" style="left: 169.89px; top: 178.191px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00748);">68M11 Internet topics</span><span data-canvas-width="4.616004550833334" style="left: 322.306px; top: 173.193px; font-size: 16.6043px; line-height: 16.6043px; font-family: sans-serif; transform: scaleX(0.835034);">·</span><span data-canvas-width="302.39645090473346" style="left: 331.29px; top: 178.191px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00352);">68M15 Reliability, testing and fault tolerance</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 633.687px; top: 189.797px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="4.616004550833334" style="left: 638.119px; top: 173.193px; font-size: 16.6043px; line-height: 16.6043px; font-family: sans-serif; transform: scaleX(0.835034);">·</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 642.735px; top: 189.797px; font-size: 0px; line-height: 0px; font-family: sans-serif;"> </span><span data-canvas-width="183.22051150536376" style="left: 84.57px; top: 198.111px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.998348);">68M14 Distributed systems</span><span data-canvas-width="4.616004550833334" style="left: 271.966px; top: 193.113px; font-size: 16.6043px; line-height: 16.6043px; font-family: sans-serif; transform: scaleX(0.835034);">·</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 276.582px; top: 209.718px; font-size: 0px; line-height: 0px; font-family: sans-serif;"> </span><span data-canvas-width="101.87754494221356" style="left: 280.727px; top: 198.111px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00008);">68N01 General</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 382.604px; top: 209.718px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="103.90991550673782" style="left: 84.57px; top: 257.885px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.09946);">1 Introduction</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 188.48px; top: 269.492px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.2011253301974" style="left: 84.57px; top: 297.74px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01573);">The birth of the World Wide Web was facilitated by a social interaction through the</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.771px; top: 309.347px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1579554703369" style="left: 84.57px; top: 317.661px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.04522);">internet, when in 1991, Tim Berners-Lee, posted a summary of the project on the</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.728px; top: 329.267px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1479933653961" style="left: 84.57px; top: 337.596px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.999557);">alt.hypertext newsgroup on Usenet, one of the oldest computer network communica-</span><span data-canvas-width="253.36385604855718" style="left: 84.57px; top: 357.516px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01013);">tions systems still in widespread use [</span><span data-canvas-width="8.302166458333334" style="left: 337.919px; top: 357.516px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00026);">1</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 346.221px; top: 369.123px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="300.5799368398147" style="left: 346.214px; top: 357.516px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.007);">]. Six years later, the first recognisable social</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.794px; top: 369.123px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="274.95114897264494" style="left: 84.57px; top: 377.436px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00754);">network site launched, SixDegrees.com [</span><span data-canvas-width="8.302166458333334" style="left: 359.505px; top: 377.436px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00026);">2</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 367.807px; top: 389.043px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="278.9826811031093" style="left: 367.8px; top: 377.436px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01543);">]. In its fourth quarter earnings results for</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.783px; top: 389.043px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.0068560592262" style="left: 84.5717px; top: 397.371px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.964271);">2013, Facebook, the current largest social network, revealed that it has over 1.23 billion</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.579px; top: 408.978px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="432.9098273375005" style="left: 84.5717px; top: 417.292px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.966062);">monthly active users and 945 million mobile monthly active users [</span><span data-canvas-width="8.302166458333334" style="left: 517.47px; top: 417.292px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00026);">3</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 525.772px; top: 428.898px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="120.82142850614895" style="left: 525.93px; top: 417.292px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.963616);">]. The viral growth</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.751px; top: 428.898px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="561.9487415148536" style="left: 84.5716px; top: 437.212px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.967508);">of social networks and applications today can be explained through both societal devel-</span><span data-canvas-width="562.1895036019241" style="left: 84.5716px; top: 457.147px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.02577);">opments and technological advancements, that together have enabled new types of</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.761px; top: 468.753px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1529743026324" style="left: 84.5716px; top: 477.067px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.992912);">applications where users co-create content. The spreading effect of social networking</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.725px; top: 488.674px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.217730789386" style="left: 84.5716px; top: 496.988px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.992529);">can be attributed to another factor, the emergence of the iPhone, ultimately leading to</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.789px; top: 508.594px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="164.88766749438025" style="left: 84.5716px; top: 516.923px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01913);">the smartphone culture [</span><span data-canvas-width="8.302166458333334" style="left: 249.451px; top: 516.923px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00026);">4</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 257.753px; top: 528.529px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="389.02125489578543" style="left: 257.747px; top: 516.923px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01555);">]. Web enabled devices have become extremely common-</span><span data-canvas-width="544.0044384750266" style="left: 84.5717px; top: 536.843px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.06162);">place,withmobiledevicesleadingtheway,butthisbringstodevelopersachallenge[</span><span data-canvas-width="8.302166458333334" style="left: 628.589px; top: 536.843px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00026);">5</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 636.892px; top: 548.449px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="9.686967823583334" style="left: 637.094px; top: 536.843px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00094);">].</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.781px; top: 548.449px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1446722949114" style="left: 84.5717px; top: 556.763px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00204);">This is the fragmentation which runs both length (device fragmentation) and breadth</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.716px; top: 568.37px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1679177539404" style="left: 84.5717px; top: 576.698px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01748);">(operating system fragmentation) across the mobile landscape. Devices with differ-</span><span data-canvas-width="562.1463328739892" style="left: 84.5717px; top: 596.618px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.03726);">ent processing, memory, communication and displaying capabilities are examples</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.718px; top: 608.225px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="167.98603632048957" style="left: 84.5717px; top: 616.539px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.998557);">of device fragmentation [</span><span data-canvas-width="8.302166458333334" style="left: 252.571px; top: 616.539px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00026);">6</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 260.873px; top: 628.145px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="385.8946596395381" style="left: 260.881px; top: 616.539px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.999816);">]. There are different companies with their own platforms,</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.776px; top: 628.145px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1762202494966" style="left: 84.5717px; top: 636.474px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.980876);">running different operating systems and requiring expertise in each development envi-</span><span data-canvas-width="562.2177312513185" style="left: 84.5717px; top: 656.394px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.993111);">ronment, making it hard and costly to address multiple devices. As such, a traditional</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.789px; top: 668.001px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.2193922112996" style="left: 84.5717px; top: 676.329px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.0214);">native approach is not always an ideal solution. Mobile phones were social tools to</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.791px; top: 687.936px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.134709847257" style="left: 84.5717px; top: 696.249px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.983683);">begin with, by making interpersonal communications portable. With world population</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.706px; top: 707.856px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="561.9885921634168" style="left: 84.5717px; top: 716.17px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.953918);">3G coverage estimated to reach 85 % by 2017, it makes sense to use them as such online</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.56px; top: 727.776px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="544.235238696259" style="left: 84.5717px; top: 736.105px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.970139);">too, after they evolved into essentially web clients to be carried around, at all times [</span><span data-canvas-width="8.302166458333334" style="left: 628.8px; top: 736.105px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00026);">7</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 637.102px; top: 747.711px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="9.686967823583334" style="left: 637.096px; top: 736.105px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00094);">].</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.783px; top: 747.711px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="543.2622248384835" style="left: 103.472px; top: 756.025px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.99537);">What all platforms have in common, is the increasing compliance to the web stan-</span><span data-canvas-width="562.1413513717074" style="left: 84.5716px; top: 775.945px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01578);">dards brought to them through modern web browsers. Technological achievements,</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.713px; top: 787.552px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1662590297328" style="left: 84.5716px; top: 795.88px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.03697);">such as the improvement of modern browsers and the standardization of HTML5,</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.738px; top: 807.487px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1978060403617" style="left: 84.5716px; top: 815.801px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01614);">led to the creation of advanced web applications, offering features only available to</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.769px; top: 827.407px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.2210524348784" style="left: 84.5716px; top: 835.721px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.997201);">native applications before. This phenomenon of humongous interaction with the web</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.793px; top: 847.327px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1828622607857" style="left: 84.5716px; top: 855.656px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01203);">has brought up some issues that need to be addressed, as its impacts are of the same</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.754px; top: 867.262px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1994664278252" style="left: 84.5716px; top: 875.576px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.990031);">extent. The infrastructure software had to evolve to address the service demand. “The</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.771px; top: 887.183px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1579560587945" style="left: 84.5716px; top: 895.496px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.02044);">cloud” is the current paradigm of computing, building on this notion of co-creating</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.73px; top: 907.103px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="180.98058756493216" style="left: 84.5716px; top: 915.432px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01714);">both content and services [</span><span data-canvas-width="8.302166458333334" style="left: 265.546px; top: 915.432px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00026);">8</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 273.848px; top: 927.038px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="372.92667536943895" style="left: 273.841px; top: 915.432px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.01385);">], while a promising protocol for real-time client-server</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.768px; top: 927.038px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1978067276149" style="left: 84.5716px; top: 935.352px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.03878);">data exchange, i.e., the WebSocket protocol, was standardized just two years ago,</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.769px; top: 946.958px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="140.93425682879692" style="left: 84.5716px; top: 955.272px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.04117);">on December 2011 [</span><span data-canvas-width="8.302166458333334" style="left: 225.511px; top: 955.272px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.00026);">9</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 233.813px; top: 966.879px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="412.92153175879986" style="left: 233.806px; top: 955.272px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(1.0396);">]. With JavaScript being one of the most used and dominant</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.728px; top: 966.879px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.2243732790461" style="left: 84.5716px; top: 975.207px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.994804);">web technologies for client side programming, the birth of server side JavaScript i.e.,</span><span data-is-whitespace="true" data-canvas-width="0.016666666666666666" style="left: 646.796px; top: 986.814px; font-size: 0px; line-height: 0px; font-family: serif;"> </span><span data-canvas-width="562.1280677844945" style="left: 84.5716px; top: 995.127px; font-size: 16.6043px; line-height: 16.6043px; font-family: serif; transform: scaleX(0.99274);">Node.js on May 2009, offered the potential of client-server programming integration,</span><span data-canvas-width="66.22682768594998" style="left: 84.57px; top: 1029.97px; font-size: 24.9067px; line-height: 24.9067px; font-family: sans-serif; transform: scaleX(1.59412);">123</span></div><div class="stickynotes-layer" id="stickynotelayer2" style="width: 732px; height: 1110px;"></div><div class="annotationLayer"><section class="annotLink" data-annotation-id="2" style="width: 5.973px; height: 10.959px; left: 201.756px; top: 211.51px; position: absolute; transform: matrix(1.66667, 0, 0, 1.66667, 0, 0); transform-origin: -201.756px -211.51px 0px;"><a title="" href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#cite.r1" class="internalLink"></a></section><section class="annotLink" data-annotation-id="3" style="width: 5.973px; height: 10.959px; left: 214.707px; top: 223.462px; position: absolute; transform: matrix(1.66667, 0, 0, 1.66667, 0, 0); transform-origin: -214.707px -223.462px 0px;"><a title="" href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#cite.r2" class="internalLink"></a></section><section class="annotLink" data-annotation-id="4" style="width: 5.973px; height: 10.959px; left: 309.486px; top: 247.375px; position: absolute; transform: matrix(1.66667, 0, 0, 1.66667, 0, 0); transform-origin: -309.486px -247.375px 0px;"><a title="" href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#cite.r3" class="internalLink"></a></section><section class="annotLink" data-annotation-id="5" style="width: 5.973px; height: 10.959px; left: 148.674px; top: 307.153px; position: absolute; transform: matrix(1.66667, 0, 0, 1.66667, 0, 0); transform-origin: -148.674px -307.153px 0px;"><a title="" href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#cite.r4" class="internalLink"></a></section><section class="annotLink" data-annotation-id="6" style="width: 5.973px; height: 10.959px; left: 376.158px; top: 319.105px; position: absolute; transform: matrix(1.66667, 0, 0, 1.66667, 0, 0); transform-origin: -376.158px -319.105px 0px;"><a title="" href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#cite.r5" class="internalLink"></a></section><section class="annotLink" data-annotation-id="7" style="width: 5.973px; height: 10.959px; left: 150.546px; top: 366.922px; position: absolute; transform: matrix(1.66667, 0, 0, 1.66667, 0, 0); transform-origin: -150.546px -366.922px 0px;"><a title="" href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#cite.r6" class="internalLink"></a></section><section class="annotLink" data-annotation-id="8" style="width: 5.973px; height: 10.959px; left: 376.284px; top: 438.661px; position: absolute; transform: matrix(1.66667, 0, 0, 1.66667, 0, 0); transform-origin: -376.284px -438.661px 0px;"><a title="" href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#cite.r7" class="internalLink"></a></section><section class="annotLink" data-annotation-id="9" style="width: 5.973px; height: 10.959px; left: 158.331px; top: 546.256px; position: absolute; transform: matrix(1.66667, 0, 0, 1.66667, 0, 0); transform-origin: -158.331px -546.256px 0px;"><a title="" href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#cite.r8" class="internalLink"></a></section><section class="annotLink" data-annotation-id="10" style="width: 5.973px; height: 10.959px; left: 134.31px; top: 570.16px; position: absolute; transform: matrix(1.66667, 0, 0, 1.66667, 0, 0); transform-origin: -134.31px -570.16px 0px;"><a title="" href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#cite.r9" class="internalLink"></a></section></div></div><div id="pageContainer3" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer4" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer5" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer6" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer7" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer8" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer9" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer10" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer11" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer12" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer13" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer14" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer15" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer16" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer17" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer18" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer19" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer20" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer21" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div><div id="pageContainer22" class="page" style="width: 732px; height: 1110px;"><div class="loadingIcon"></div></div></div>
+
+                </div>
+
+                <div id="errorWrapper" hidden="true">
+                    <div id="errorMessageLeft">
+                        <span id="errorMessage"></span>
+                        <button id="errorShowMore">
+                            More Information
+                        </button>
+                        <button id="errorShowLess" hidden="true">
+                            Less Information
+                        </button>
+                    </div>
+                    <div id="errorMessageRight">
+                        <button id="errorClose">
+                            Close
+                        </button>
+                    </div>
+                    <div class="clearBoth"></div>
+                    <textarea id="errorMoreInfo" hidden="true" readonly="readonly"></textarea>
+                </div>
+            </div> <!-- mainContainer -->
+
+            <div id="sidebarContainer" class="thumbs">
+                <div class="sidebar-tabs-controller">
+                    <button id="viewThumbnail" class="tab thumbs-tab" data-tab="my-library">
+                        <span class="icon icon-pages"></span><span>Pages</span>
+                    </button><!-- no whitespace between inline-block elements to avoid spacing issues
+                 --><button id="viewOutline" class="tab outline-tab" data-tab="groups">
+                        <span class="icon icon-contents"></span><span>Contents</span>
+                    </button><!-- no whitespace between inline-block elements to avoid spacing issues
+                 --><button id="viewAttachments" style="display:none;" disabled=""></button>
+                </div>
+                <div id="sidebarContent" class="sidebar-tabs-container">
+                    <div id="thumbnailView" class="sidebar-tab sidebar-thumbs"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=1" title="Page 1"><div id="thumbnailContainer1" class="thumbnail selected"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=2" title="Page 2"><div id="thumbnailContainer2" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=3" title="Page 3"><div id="thumbnailContainer3" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=4" title="Page 4"><div id="thumbnailContainer4" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=5" title="Page 5"><div id="thumbnailContainer5" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=6" title="Page 6"><div id="thumbnailContainer6" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=7" title="Page 7"><div id="thumbnailContainer7" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=8" title="Page 8"><div id="thumbnailContainer8" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=9" title="Page 9"><div id="thumbnailContainer9" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=10" title="Page 10"><div id="thumbnailContainer10" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=11" title="Page 11"><div id="thumbnailContainer11" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=12" title="Page 12"><div id="thumbnailContainer12" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=13" title="Page 13"><div id="thumbnailContainer13" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=14" title="Page 14"><div id="thumbnailContainer14" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=15" title="Page 15"><div id="thumbnailContainer15" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=16" title="Page 16"><div id="thumbnailContainer16" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=17" title="Page 17"><div id="thumbnailContainer17" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=18" title="Page 18"><div id="thumbnailContainer18" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=19" title="Page 19"><div id="thumbnailContainer19" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=20" title="Page 20"><div id="thumbnailContainer20" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=21" title="Page 21"><div id="thumbnailContainer21" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#page=22" title="Page 22"><div id="thumbnailContainer22" class="thumbnail"><div class="thumbnailSelectionRing" style="width: 100px; height: 150px;"></div></div></a></div>
+                    <div id="outlineView" class="sidebar-tab sidebar-outline"><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#section*.1">Is Node.js a viable option for building modern web applications? A performance evaluation study</a><div class="outlineItems"><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#abscnt.1">Abstract</a></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#section.1">1 Introduction</a></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#section.2">2 Current tendencies and challenges</a></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#section.3">3 Design and implementation</a><div class="outlineItems"><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#subsection.3.1">3.1 Server architecture</a></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#subsection.3.2">3.2 Client architecture</a></div></div></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#section.4">4 Performance evaluation</a><div class="outlineItems"><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#subsection.4.1">4.1 Experimental environment</a></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#subsection.4.2">4.2 Testing framework</a><div class="outlineItems"><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#subsubsection.4.2.1">4.2.1 Resource profiler</a></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#subsubsection.4.2.2">4.2.2 Master node</a></div></div></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#subsection.4.3">4.3 Test cases</a></div></div></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#section.5">5 Results and discussion</a><div class="outlineItems"><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#subsection.5.1">5.1 I/O test</a></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#subsection.5.2">5.2 Computational/hashing test</a></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#subsection.5.3">5.3 Static file test</a></div></div></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#section.6">6 Conclusions</a></div><div class="outlineItem"><a href="https://www.mendeley.com/viewer/?fileId=396e013d-d95f-3917-3c81-a49136d37831&amp;documentId=95a8f15e-3fe5-3206-bb8f-aec44d2df2d0#myseccnt.1">References</a></div></div></div></div>
+                    <div id="attachmentsView" style="display:none;"></div>
+                </div>
+                <div id="sidebarPager" class="sidebar-pager">
+                    <span class="sidebarLabel">Current Page</span>
+                    <button id="previous" class="icon icon-zoom-out" title="Previous Page" disabled=""></button>
+                    <input type="number" id="pageNumber" class="pageNumber" value="1" size="4" min="1" max="22">
+                    <span id="numPages">of 22</span>
+                    <button id="next" class="icon icon-zoom-in" title="Next Page"></button>
+                </div>
+            </div>
+            <div id="overlayContainer" class="hidden">
+                <div id="passwordOverlay" class="container hidden">
+                    <div class="dialog">
+                        <div class="row">
+                            <p id="passwordText">Enter the password to open this PDF file:</p>
+                        </div>
+                        <div class="row">
+                            <input type="password" id="password" class="toolbarField">
+                        </div>
+                        <div class="buttonRow">
+                            <button id="passwordCancel" class="overlayButton"><span>Cancel</span></button>
+                            <button id="passwordSubmit" class="overlayButton"><span>OK</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="documentPropertiesOverlay" class="container hidden">
+                    <div class="dialog">
+                        <div class="row">
+                            <span>File name:</span> <p id="fileNameField">-</p>
+                        </div>
+                        <div class="row">
+                            <span>File size:</span> <p id="fileSizeField">-</p>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="row">
+                            <span>Title:</span> <p id="titleField">-</p>
+                        </div>
+                        <div class="row">
+                            <span>Author:</span> <p id="authorField">-</p>
+                        </div>
+                        <div class="row">
+                            <span>Subject:</span> <p id="subjectField">-</p>
+                        </div>
+                        <div class="row">
+                            <span>Keywords:</span> <p id="keywordsField">-</p>
+                        </div>
+                        <div class="row">
+                            <span>Creation Date:</span> <p id="creationDateField">-</p>
+                        </div>
+                        <div class="row">
+                            <span>Modification Date:</span> <p id="modificationDateField">-</p>
+                        </div>
+                        <div class="row">
+                            <span>Creator:</span> <p id="creatorField">-</p>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="row">
+                            <span>PDF Producer:</span> <p id="producerField">-</p>
+                        </div>
+                        <div class="row">
+                            <span>PDF Version:</span> <p id="versionField">-</p>
+                        </div>
+                        <div class="row">
+                            <span>Page Count:</span> <p id="pageCountField">-</p>
+                        </div>
+                        <div class="buttonRow">
+                            <button id="documentPropertiesClose" class="overlayButton"><span>Close</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>  <!-- overlayContainer -->
+        </div> <!-- outerContainer -->
+
+        <div id="printContainer"></div>
+        <div id="mozPrintCallback-shim" hidden="">
+            <style>
+                @media print {
+                    #printContainer div {
+                        page-break-after: always;
+                        page-break-inside: avoid;
+                    }
+                }
+            </style>
+            <style scoped="">
+                #mozPrintCallback-shim {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    z-index: 9999999;
+
+                    display: block;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+                #mozPrintCallback-shim[hidden] {
+                    display: none;
+                }
+                @media print {
+                    #mozPrintCallback-shim {
+                        display: none;
+                    }
+                }
+
+                #mozPrintCallback-shim .mozPrintCallback-dialog-box {
+                    display: inline-block;
+                    margin: -50px auto 0;
+                    position: relative;
+                    top: 45%;
+                    left: 0;
+                    min-width: 220px;
+                    max-width: 400px;
+
+                    padding: 9px;
+
+                    border: 1px solid hsla(0, 0%, 0%, .5);
+                    border-radius: 2px;
+                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+
+                    background-color: #474747;
+
+                    color: hsl(0, 0%, 85%);
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+                #mozPrintCallback-shim .progress-row {
+                    clear: both;
+                    padding: 1em 0;
+                }
+                #mozPrintCallback-shim progress {
+                    width: 100%;
+                }
+                #mozPrintCallback-shim .relative-progress {
+                    clear: both;
+                    float: right;
+                }
+                #mozPrintCallback-shim .progress-actions {
+                    clear: both;
+                }
+            </style>
+            <div class="mozPrintCallback-dialog-box">
+                <!-- TODO: Localise the following strings -->
+                Preparing document for printing...
+                <div class="progress-row">
+                    <progress value="0" max="100"></progress>
+                    <span class="relative-progress">0%</span>
+                </div>
+                <div class="progress-actions">
+                    <input type="button" value="Cancel" class="mozPrintCallback-cancel">
+                </div>
+            </div>
+        </div>
+        <script src="./Is Node.js a viable option for building modern web applications_ A performance evaluation study_files/main.js.descarga"></script>
+
+        <script type="text/javascript">
+            window.pageData = {
+                page: {
+                    businessUnit: 'els:rp:st',
+                    language: 'en',
+                    loadTime: String(Date.now() - 1517836018885),
+                    loadTimeStamp: '1517836018885',
+                    name: 'viewer',
+                    productName: 'md',
+                    environment: 'prod',
+                    noTracking: 'false',
+                    type: 'np-gp'
+                },
+                visitor: {
+                    userId: 'md:033d7479-e98e-343f-b0a1-9f4f3d38f9c5',
+                    accountId: '',
+                    accountName: '',
+                    accessType: 'md:registered-user',
+                    ipAddress: '193.146.109.24'
+                }
+            };
+
+            window.pageDataTracker.trackPageLoad();
+        </script>
+    
+
+
+<input id="fileInput" class="fileInput" type="file"></body></html>

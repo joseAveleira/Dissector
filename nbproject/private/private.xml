@@ -3,15 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/dissector/csvFiles/mitmdatset.csv</file>
-            <file>file:/C:/xampp/htdocs/dissector/FieldsProtocol/awdFields.txt</file>
-            <file>file:/C:/xampp/htdocs/dissector/FieldsProtocol/mqttFields.txt</file>
+            <file>file:/C:/xampp/htdocs/dissector/csvFiles/intrusion03.csv</file>
             <file>file:/C:/xampp/htdocs/dissector/tags/MITM.txt</file>
+            <file>file:/C:/xampp/htdocs/dissector/csvFiles/intrusion_03.csv</file>
             <file>file:/C:/xampp/htdocs/dissector/functions.php</file>
-            <file>file:/C:/xampp/htdocs/dissector/script.sh</file>
-            <file>file:/C:/xampp/htdocs/dissector/FieldsProtocol/frameFields.txt</file>
-            <file>file:/C:/xampp/htdocs/dissector/index.php</file>
-            <file>file:/C:/xampp/htdocs/dissector/csvFiles/ddosdataset.csv</file>
+            <file>file:/C:/xampp/htdocs/dissector/functionsnew.php</file>
         </group>
     </open-files>
 </project-private>
